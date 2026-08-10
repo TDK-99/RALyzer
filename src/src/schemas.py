@@ -23,6 +23,7 @@ class RALInput(BaseModel):
 
 class RALResult(BaseModel):
     ral_lorda: float = Field(description="Retribuzione Annua Lorda")
+    mensilita: int = Field(description="mensilità")
     inps: float = Field(description="Contributi INPS dipendente")
     imponibile: float = Field(description="Reddito imponibile (RAL - INPS)")
     irpef_lorda: float = Field(description="IRPEF lorda progressiva")
