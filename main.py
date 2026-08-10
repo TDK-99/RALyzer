@@ -82,7 +82,7 @@ async def chat(message, history):
 
 with gr.Blocks(theme=gr.themes.Soft()) as app:
     gr.Markdown("# 💰 RAL Agent - Calcolatore Stipendio Netto")
-    gr.Markdown("Inserisci la tua RAL lorda annuale e scopri il tuo stipendio netto. Puoi anche chiedere info su IRPEF, INPS e detrazioni.")
+    gr.Markdown("Inserisci la tua RAL annuale e scopri il tuo stipendio netto. Puoi anche chiedere info su IRPEF, INPS e detrazioni.")
     
     with gr.Row():
         with gr.Column(scale=1):
