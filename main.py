@@ -76,13 +76,18 @@ async def chat(message, history):
     
     return history, fig, ""
 
-import gradio as gr
-
 with gr.Blocks(theme=gr.themes.Soft()) as app:
+    gr.Markdown("# 💰 RAL Agent - Calcolatore Stipendio Netto")
+    gr.Markdown("Inserisci la tua RAL lorda annuale e scopri il tuo stipendio netto. Puoi anche chiedere info su IRPEF, INPS e detrazioni.")
+    
     with gr.Row():
         with gr.Column(scale=1):
-            chatbot = gr.Chatbot(height=200, label="RAL Agent")
-            msg = gr.Textbox(placeholder="Inserisci la tua RAL...", label="")
+            chatbot = gr.Chatbot(height=400, label="RAL AI")
+            msg = gr.Textbox(
+                placeholder="Es: 'Ho una RAL di 35mila euro' oppure 'Cos'è l'IRPEF?'",
+                label="Scrivi qui",
+                show_label=True
+            )
         with gr.Column(scale=1):
             plot = gr.Plot(label="Waterfall")
 
