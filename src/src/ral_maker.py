@@ -86,6 +86,7 @@ def calcola_netto(ral_data: RALInput) -> RALResult:
 
     return RALResult(
     ral_lorda=round(ral_lorda, 2),
+    mensilita=mensilita,
     inps=round(INPS, 2),
     imponibile=round(imponibile, 2),
     irpef_lorda=round(irpef_lorda, 2),
