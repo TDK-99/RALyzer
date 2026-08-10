@@ -29,6 +29,9 @@ tax_expert = Agent(name="tax_espert", instructions="esperto nella fiscalità ita
 async def chat(message, history):
     fig = None  # di default nessun grafico
     risposta= ""
+
+    # in cima alla funzione o come variabile globale
+    ultimo_ral_input = None
     
     with trace("Build json"):  # ← metti un nome tuo
         result = await router_agent(message)  
@@ -44,6 +47,7 @@ async def chat(message, history):
 # QUA PENSO UN FOR PERCHÈ SE NON DA I DATI
         with trace("dai info"):
             data_result=await json_builder_agent(message)
+            ultimo_ral_input = data_result
             if data_result is None:
                 risposta = "Non sono riuscito a elaborare i dati, riprova."
             else:
@@ -54,11 +58,11 @@ async def chat(message, history):
     elif result.category.upper() == "UPDATE":
 # QUA PENSO UN FOR PERCHÈ SE NON DA I DATI e deve modificare
         with trace("dai info"):
-            update_result=  await json_builder_agent(result.message)
+            update_result = await json_builder_agent(f"Dati attuali: {ultimo_ral_input}. Modifica: {message}")
             if update_result is None:
                 risposta = "Non sono riuscito a elaborare i dati, riprova."
             else:
-                calculation = calcola_netto(data_result)
+                calculation = calcola_netto(update_result)
                 fig = create_waterfall(calculation)
                 risposta = "Ho modificato i tuoi dati"
      
