@@ -1,0 +1,22 @@
+{
+  "anno": 2026,
+  "inps": {
+    "dipendente": 0.0919,
+    "datore": 0.2381
+  },
+  "irpef_scaglioni": [
+    {"fino_a": 28000, "aliquota": 0.23},
+    {"fino_a": 50000, "aliquota": 0.33},
+    {"fino_a": null, "aliquota": 0.43}
+  ],
+  "detrazioni_lavoro_dipendente": {
+    "fascia_1": {"fino_a": 15000, "importo_fisso": 1955},
+    "fascia_2": {"fino_a": 28000, "base": 1910, "extra": 1190, "divisore": 13000},
+    "fascia_3": {"fino_a": 50000, "base": 1910, "divisore": 22000}
+  },
+  "costo_azienda": {
+    "inps_datore": 0.2381,
+    "tfr_divisore": 13.5,
+    "inail": 0.004
+  }
+}
