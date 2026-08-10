@@ -14,6 +14,11 @@
     "fascia_2": {"fino_a": 28000, "base": 1910, "extra": 1190, "divisore": 13000},
     "fascia_3": {"fino_a": 50000, "base": 1910, "divisore": 22000}
   },
+  "cuneo_fiscale": {
+    "fascia_1": {"fino_a": 20000, "tipo": "non_tassabile"},
+    "fascia_2": {"fino_a": 32000, "detrazione": 1000},
+    "fascia_3": {"fino_a": 40000, "detrazione_decresce": true}
+},
   "costo_azienda": {
     "inps_datore": 0.2381,
     "tfr_divisore": 13.5,
