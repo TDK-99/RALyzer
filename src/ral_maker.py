@@ -15,7 +15,7 @@ def calcola_netto(ral_data: RALInput) -> RALResult:
     addizionale_regionale = ral_data.addizionale_regionale
 
 
-    with open(f"../data_ral_maker.json", "r") as f:
+    with open(f"data_ral_maker.json", "r") as f:
         config = json.load(f)
 
     # poi accedi con le chiavi
