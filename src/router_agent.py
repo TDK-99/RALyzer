@@ -35,7 +35,9 @@ async def router_agent(task:str) -> UserIntent:
     Esempio: "Puoi cambiare il tipo di grafico?", "Esporta in PDF", 
     "Mandami il risultato via email", "Calcola il mio TFR"
 
-    Rispondi SOLO con il JSON richiesto.
+    Rispondi SOLO con il JSON richiesto:
+    - "category": una tra info, data, update, off_topic, not_capable
+    - "message": breve spiegazione della classificazione
     """
 # build the router
     router = Agent(name="router", instructions=instructions, model=oss_model)
