@@ -4,7 +4,7 @@ from enum import Enum
 # agent router schema
 
 class UserIntent(BaseModel):
-    category: str = Field(description="Classificazione: info, data, update, off_topic")
+    category: str = Field(description="Classificazione: info, data, update, off_topic,not capable")
     message: str = Field(description="Breve spiegazione della classificazione")
 
 

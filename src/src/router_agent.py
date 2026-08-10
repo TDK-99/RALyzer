@@ -29,6 +29,12 @@ async def router_agent(task:str) -> UserIntent:
     - OFF_TOPIC: l'utente parla di argomenti non relativi a stipendio e tasse.
     Esempio: "Chi è Donald Trump?"
 
+    - NOT_CAPABLE: l'utente chiede di eseguire un'operazione che il tool 
+    non è in grado di fare. Il tool può solo calcolare il netto da una RAL 
+    e fornire informazioni su tasse e stipendio.
+    Esempio: "Puoi cambiare il tipo di grafico?", "Esporta in PDF", 
+    "Mandami il risultato via email", "Calcola il mio TFR"
+
     Rispondi SOLO con il JSON richiesto.
     """
 # build the router
