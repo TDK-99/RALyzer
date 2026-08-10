@@ -82,7 +82,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as app:
     
     with gr.Row():
         with gr.Column(scale=1):
-            chatbot = gr.Chatbot(height=400, label="RAL AI")
+            chatbot = gr.Chatbot(height=650, label="RAL AI")
             msg = gr.Textbox(
                 placeholder="Es: 'Ho una RAL di 35mila euro' oppure 'Cos'è l'IRPEF?'",
                 label="Scrivi qui",
