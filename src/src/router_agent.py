@@ -42,6 +42,6 @@ async def router_agent(task:str) -> UserIntent:
         def parse_output(raw: str, model_class):
             return model_class(**json.loads(raw))
 
-    print(parse_output(result.final_output, UserIntent))
+        parse_result= parse_output(result.final_output, UserIntent)
 
-    return result.final_output
+    return parse_result
