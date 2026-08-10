@@ -18,7 +18,7 @@ async def json_builder_agent(task:str) -> RALInput:
     Il tuo unico obiettivo è raccogliere i dati dall'utente per completare il JSON di output.
 
     Campi da compilare:
-    - ral: la Retribuzione Annua Lorda (obbligatorio, deve fornirlo l'utente)
+    - ral: la Retribuzione Annua Lorda - se utente da una cifra mensile moltiplica per la mensilità (obbligatorio, deve fornirlo l'utente)
     - mensilita: 13 o 14 (default: 13)
     - citta: città di residenza (default: Milano)
     - figli_sotto_21: numero di figli sotto i 21 anni a carico (default: 0)
