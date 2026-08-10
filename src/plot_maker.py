@@ -24,8 +24,8 @@ def create_waterfall(risultato: RALResult):
         template="plotly_dark",
         modebar={"remove": ["zoom", "pan", "select", "lasso", "zoomIn", "zoomOut", "autoScale", "resetScale"]},
         showlegend=False,
-        height=550,
-        width=800,
+        height=500,
+        width=600,
     )
 
     return fig
