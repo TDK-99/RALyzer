@@ -1,7 +1,9 @@
 from agents import Agent, Runner, trace
+import json
 
 from config import  oss_model
 from schemas import UserIntent
+
 
 
 # def for the router agent
@@ -30,10 +32,16 @@ async def router_agent(task:str) -> UserIntent:
     Rispondi SOLO con il JSON richiesto.
     """
 # build the router
-    router = Agent(name="router", instructions=instructions, model=oss_model, output_type=UserIntent)
+    router = Agent(name="router", instructions=instructions, model=oss_model)
 
 # run and trace the llm response
-    with trace("Check ral json"):  
+
+    with trace("Check ral json"):  # ← metti un nome tuo
         result = await Runner.run(router, task)
+
+        def parse_output(raw: str, model_class):
+            return model_class(**json.loads(raw))
+
+    print(parse_output(result.final_output, UserIntent))
 
     return result.final_output
