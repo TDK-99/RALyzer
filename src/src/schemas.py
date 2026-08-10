@@ -16,3 +16,5 @@ class RALInput(BaseModel):
     citta: str = Field(default="Milano", description="Città di residenza per addizionale comunale")
     figli_sotto_21: int = Field(default=0, description="Numero di figli sotto i 21 anni a carico")
     figli_disabilita: int = Field(default=0, description="Numero di figli con disabilità a carico")
+    addizionale_comunale: float = Field(default=0.008, description="Aliquota addizionale comunale (default Milano 0.8%)")
+    addizionale_regionale: float = Field(default=0.0173, description="Aliquota addizionale regionale (default Lombardia 1.73%)")

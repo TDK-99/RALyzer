@@ -23,6 +23,8 @@ async def json_builder_agent(task:str) -> RALInput:
     - citta: città di residenza (default: Milano)
     - figli_sotto_21: numero di figli sotto i 21 anni a carico (default: 0)
     - figli_disabilita: numero di figli con disabilità a carico (default: 0)
+    - Aliquota addizionale comunale (default Milano 0.8%)
+    - Aliquota addizionale regionale (default Lombardia 1.73%) 
 
     Regole:
     - Se l'utente fornisce solo la RAL, completa il JSON con i valori di default per gli altri campi.
@@ -30,6 +32,7 @@ async def json_builder_agent(task:str) -> RALInput:
     - Se l'utente specifica valori diversi dai default, usa quelli.
     - Se il messaggio è ambiguo o manca la RAL, chiedi chiarimenti in modo breve e diretto.
     - Non inventare dati. Non fare calcoli. Il tuo lavoro è solo costruire il JSON.
+    - Aliquote fisse se non esplicitamente inserite nel testo dall'utente
     - Rispondi SOLO con il JSON richiesto.
     """
 # build the router
