@@ -1,8 +1,8 @@
 from agents import Agent, Runner, trace
 import json
 
-from config import  oss_model
-from schemas import UserIntent
+from .config import  oss_model
+from .schemas import UserIntent
 
 
 
