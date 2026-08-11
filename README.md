@@ -6,11 +6,11 @@ Verificare sempre i risultati.
 
 # 💰 RAL Agent — Calcolatore Stipendio Netto con AI
  
-Un calcolatore intelligente dello stipendio netto italiano, costruito con un'architettura multi-agent. 
+Un calcolatore intelligente dello stipendio netto italiano, costruito con un'architettura multi-agent.
 
 L'utente inserisce la propria RAL (Retribuzione Annua Lorda) tramite linguaggio naturale e ottiene un breakdown completo delle voci in busta paga, visualizzato con un waterfall chart interattivo.
 
-Inoltre utente potrà richiedere informazioni sulla fiscalità.
+Il sistema include guardrail per la gestione di richieste fuori ambito e funzionalità non disponibili, oltre a un agente esperto in fiscalità italiana per rispondere a domande su IRPEF, INPS, detrazioni e addizionali.
  
 ![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)
 ![OpenAI Agents SDK](https://img.shields.io/badge/OpenAI_Agents_SDK-0.19.4-412991?logo=openai&logoColor=white)
@@ -23,10 +23,7 @@ Inoltre utente potrà richiedere informazioni sulla fiscalità.
  
 ## 🖥️ Demo
  
-<!-- Inserisci qui gli screenshot: chat e waterfall -->
-<!-- ![Chat Demo](assets/demo_chat.png) -->
-<!-- ![Waterfall Chart](assets/demo_waterfall.png) -->
- 
+![demo](assets/demo1.png)
 ---
  
 ## 🏗️ Architettura
