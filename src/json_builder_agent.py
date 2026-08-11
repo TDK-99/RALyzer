@@ -47,7 +47,7 @@ async def json_builder_agent(task:str) -> RALInput:
 
 # run and trace the llm response
 
-    with trace("Check ral json"):  # ← metti un nome tuo
+    with trace("Check ral json"):
         result = await Runner.run(json_builder, task)
 
     def parse_output(raw: str, model_class):

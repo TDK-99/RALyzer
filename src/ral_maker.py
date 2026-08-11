@@ -14,13 +14,12 @@ def calcola_netto(ral_data: RALInput) -> RALResult:
     addizionale_comunale = ral_data.addizionale_comunale
     addizionale_regionale = ral_data.addizionale_regionale
 
-
+    #accesso al json con dati fiscali
     from pathlib import Path
     config_path = Path(__file__).parent.parent / "data_ral_maker.json"
     with open(config_path, "r") as f:
         config = json.load(f)
 
-    # poi accedi con le chiavi
     inps_rate = config["inps"]["dipendente"]  
     ral_mensile_lorda= ral_lorda/mensilita
     INPS = ral_lorda*inps_rate

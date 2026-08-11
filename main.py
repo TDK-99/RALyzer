@@ -2,6 +2,7 @@ import sys
 sys.path.append("..")
 
 
+# importa tutti py
 from src.router_agent import router_agent
 from src.json_builder_agent import json_builder_agent
 from src.ral_maker import calcola_netto
@@ -38,13 +39,14 @@ async def chat(message, history):
 
     print(f"Category: '{result.category}'")
 
-    if result.category.upper() == "INFO": 
+    # ROUTER If
+
+    if result.category.upper() == "INFO": # informazioni campo fiscale reddito
         with trace("dai info"):
             info_result= await Runner.run(tax_expert, result.message)
         risposta = info_result.final_output
 
-    elif result.category.upper() == "DATA": 
-# QUA PENSO UN FOR PERCHÈ SE NON DA I DATI
+    elif result.category.upper() == "DATA": # prima richiesta di calcol oral
         with trace("dai info"):
             data_result=await json_builder_agent(message)
             ultimo_ral_input = data_result
@@ -55,8 +57,7 @@ async def chat(message, history):
                 fig = create_waterfall(calculation)
                 risposta = "Ecco il calcolo del tuo stipendio"
     
-    elif result.category.upper() == "UPDATE":
-# QUA PENSO UN FOR PERCHÈ SE NON DA I DATI e deve modificare
+    elif result.category.upper() == "UPDATE": # richiesta di update dati ral
         with trace("dai info"):
             update_result = await json_builder_agent(f"Dati attuali: {ultimo_ral_input}. Modifica: {message}")
             if update_result is None:
@@ -66,15 +67,14 @@ async def chat(message, history):
                 fig = create_waterfall(calculation)
                 risposta = "Ho modificato i tuoi dati"
      
-    elif result.category.upper() == "OFF_TOPIC":
+    elif result.category.upper() == "OFF_TOPIC": # chiede informazioni non inerenti
         risposta = "Argomento non inerente allo scopo del calcolatore"
     
-    elif result.category.upper() == "NOT_CAPABLE":  
+    elif result.category.upper() == "NOT_CAPABLE": # chiede feature non disponibili dallo strumento  
         risposta = "Feature del calcolatore non disponibile puoi inviare il suggerimento alla mail tizio@caio.it"
     
-    # Step 2: if/elif sugli intent
     
-    # Step 3: aggiorna history con la risposta
+    # aggiorna history con la risposta
     history.append({"role": "user", "content": message})
     history.append({"role": "assistant", "content": risposta})  
     
