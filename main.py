@@ -9,7 +9,7 @@ from src.ral_maker import calcola_netto
 from src.plot_maker import create_waterfall
 from src.schemas import UserIntent, RALInput, RALResult
 from src.config import oss_model
-
+import asyncio
 
 
 import os
