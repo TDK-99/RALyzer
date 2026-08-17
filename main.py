@@ -48,14 +48,31 @@ async def chat(message, history):
 
     elif result.category.upper() == "DATA": # prima richiesta di calcol oral
         with trace("dai info"):
+
+            history.append({"role": "user", "content": message})
+            yield history, None, ""
+
+            history.append({"role": "assistant", "content": "⏳ Caricamento grafico in corso..."})
+            yield history, None, ""
+        
             data_result=await json_builder_agent(message)
             ultimo_ral_input = data_result
+            
             if data_result is None:
-                risposta = "Non sono riuscito a elaborare i dati, riprova."
+                history.append({"role": "assistant", "content": "Non sono riuscito a elaborare i dati, riprova."})
+                yield history, None, ""
             else:
+
                 calculation = calcola_netto(data_result)
-                fig = create_waterfall(calculation)
-                risposta = "Ecco il calcolo del tuo stipendio"
+                fig = create_waterfall(calculation) 
+
+                await asyncio.sleep(4)
+                  
+                history.append({"role": "assistant", "content": "✅ Ecco il calcolo del tuo stipendio"})
+                yield history, fig, ""
+
+                
+
     
     elif result.category.upper() == "UPDATE": # richiesta di update dati ral
         with trace("dai info"):
@@ -74,11 +91,7 @@ async def chat(message, history):
         risposta = "Feature del calcolatore non disponibile puoi inviare il suggerimento alla mail tizio@caio.it"
     
     
-    # aggiorna history con la risposta
-    history.append({"role": "user", "content": message})
-    history.append({"role": "assistant", "content": risposta})  
-    
-    return history, fig, ""
+    yield history, fig, ""
 
 with gr.Blocks(theme=gr.themes.Soft()) as app:
     gr.Markdown("# 💰 RAL Agent - Calcolatore Stipendio Netto")
