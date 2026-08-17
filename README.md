@@ -1,3 +1,13 @@
+---
+title: AI RAL Maker
+emoji: 💰
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+app_file: main.py
+pinned: false
+---
+
 ## ⚠️ Disclaimer
 
 Questo strumento è un prototipo a scopo dimostrativo. I calcoli sono basati su parametri fiscali 2026 semplificati e non sostituiscono la consulenza di un commercialista o consulente del lavoro. L'AI può commettere errori nella classificazione e nell'elaborazione dei dati. 
