@@ -76,13 +76,25 @@ async def chat(message, history):
     
     elif result.category.upper() == "UPDATE": # richiesta di update dati ral
         with trace("dai info"):
+            history.append({"role": "user", "content": message})
+            yield history, None, ""
+
+            history.append({"role": "assistant", "content": "⏳ Caricamento grafico in corso..."})
+            yield history, None, ""
+
             update_result = await json_builder_agent(f"Dati attuali: {ultimo_ral_input}. Modifica: {message}")
             if update_result is None:
-                risposta = "Non sono riuscito a elaborare i dati, riprova."
+                history.append({"role": "assistant", "content": "Non sono riuscito a elaborare i dati, riprova."})
+                yield history, None, ""
             else:
+                
                 calculation = calcola_netto(update_result)
                 fig = create_waterfall(calculation)
-                risposta = "Ho modificato i tuoi dati"
+                
+                await asyncio.sleep(4)
+                  
+                history.append({"role": "assistant", "content": "✅ Ecco il calcolo del tuo stipendio"})
+                yield history, fig, ""
      
     elif result.category.upper() == "OFF_TOPIC": # chiede informazioni non inerenti
         risposta = "Argomento non inerente allo scopo del calcolatore"
