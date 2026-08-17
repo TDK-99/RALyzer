@@ -97,10 +97,20 @@ async def chat(message, history):
                 yield history, fig, ""
      
     elif result.category.upper() == "OFF_TOPIC": # chiede informazioni non inerenti
-        risposta = "Argomento non inerente allo scopo del calcolatore"
-    
-    elif result.category.upper() == "NOT_CAPABLE": # chiede feature non disponibili dallo strumento  
-        risposta = "Feature del calcolatore non disponibile puoi inviare il suggerimento alla mail tizio@caio.it"
+
+            history.append({"role": "user", "content": message})
+            yield history, None, ""
+
+            
+            history.append({"role": "assistant", "content": "Argomento non inerente allo scopo del calcolatore"})
+            yield history, None, ""
+
+    elif result.category.upper() == "NOT_CAPABLE": # chiede feature non disponibili dallo strumento 
+            history.append({"role": "user", "content": message})
+            yield history, None, ""
+
+            history.append({"role": "assistant", "content": "Feature del calcolatore non disponibile puoi inviare il suggerimento alla mail tizio@caio.it"})
+            yield history, None, ""
     
     
     yield history, fig, ""
