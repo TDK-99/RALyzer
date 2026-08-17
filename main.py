@@ -43,8 +43,13 @@ async def chat(message, history):
 
     if result.category.upper() == "INFO": # informazioni campo fiscale reddito
         with trace("dai info"):
+
+            history.append({"role": "user", "content": message})
+            yield history, None, ""
+
             info_result= await Runner.run(tax_expert, result.message)
-        risposta = info_result.final_output
+            history.append({"role": "assistant", "content": info_result.final_output})
+            yield history, None, ""
 
     elif result.category.upper() == "DATA": # prima richiesta di calcol oral
         with trace("dai info"):
@@ -90,7 +95,7 @@ async def chat(message, history):
                 
                 calculation = calcola_netto(update_result)
                 fig = create_waterfall(calculation)
-                
+
                 await asyncio.sleep(4)
                   
                 history.append({"role": "assistant", "content": "✅ Ecco il calcolo del tuo stipendio"})
