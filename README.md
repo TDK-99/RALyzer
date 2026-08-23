@@ -14,7 +14,7 @@ Il sistema include guardrail per la gestione di richieste fuori ambito e funzion
  
 ![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)
 ![OpenAI Agents SDK](https://img.shields.io/badge/OpenAI_Agents_SDK-0.19.4-412991?logo=openai&logoColor=white)
-![Gradio](https://img.shields.io/badge/Gradio-6.24.0-F97316?logo=gradio&logoColor=white)
+![Gradio](https://img.shields.io/badge/Gradio-6.25.0-F97316?logo=gradio&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-6.9.0-3F4F75?logo=plotly&logoColor=white)
 ![python-dotenv](https://img.shields.io/badge/python--dotenv-1.2.2-ECD53F)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
@@ -134,7 +134,7 @@ ral-agent/
 |------------|-----------|
 | Agenti | OpenAI Agents SDK (0.19.4) |
 | LLM Provider | Groq (openai/gpt-oss-120b) |
-| UI | Gradio (6.22.0) |
+| UI | Gradio (6.25.0) |
 | Grafici | Plotly (6.9.0) |
 | Validazione dati | Pydantic |
 | Orchestrazione | Codice Python (if/elif), no handoff LLM |
