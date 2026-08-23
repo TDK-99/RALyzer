@@ -4,7 +4,7 @@ Questo strumento è un prototipo a scopo dimostrativo. I calcoli sono basati su 
 
 Verificare sempre i risultati.
 
-# 💰 RAL Agent — Calcolatore Stipendio Netto con AI
+# 💰 RALyzer — Calcolatore Stipendio Netto con AI
  
 Un calcolatore intelligente dello stipendio netto italiano, costruito con un'architettura multi-agent.
 
