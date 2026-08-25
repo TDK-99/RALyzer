@@ -71,7 +71,7 @@ async def chat(message, history):
                 calculation = calcola_netto(data_result)
                 fig = create_waterfall(calculation) 
 
-                await asyncio.sleep(4)
+                await asyncio.sleep(10)
                   
                 history.append({"role": "assistant", "content": "✅ Ecco il calcolo del tuo stipendio"})
                 yield history, fig, ""
@@ -96,7 +96,7 @@ async def chat(message, history):
                 calculation = calcola_netto(update_result)
                 fig = create_waterfall(calculation)
 
-                await asyncio.sleep(4)
+                await asyncio.sleep(10)
                   
                 history.append({"role": "assistant", "content": "✅ Ecco il calcolo del tuo stipendio"})
                 yield history, fig, ""
@@ -132,7 +132,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as app:
                 label="Scrivi qui",
                 show_label=True
             )
-        with gr.Column(scale=1):
+        with gr.Column(scale=2):
             plot = gr.Plot(label="Waterfall")
 
     msg.submit(fn=chat, inputs=[msg, chatbot], outputs=[chatbot, plot, msg])
