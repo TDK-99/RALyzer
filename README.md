@@ -134,25 +134,13 @@ ral-agent/
 |------------|-----------|
 | Agenti | OpenAI Agents SDK (0.19.4) |
 | LLM Provider | Groq (openai/gpt-oss-120b) |
-| UI | Gradio (6.25.0) |
+| UI | Gradio ≥(6.25.0) |
 | Grafici | Plotly (6.9.0) |
 | Validazione dati | Pydantic |
 | Orchestrazione | Codice Python (if/elif), no handoff LLM |
  
 ---
- 
-## 📝 Semplificazioni (v1)
- 
-Il prototipo copre il caso standard definito nel brief:
- 
-- Dipendente privato a tempo indeterminato
-- Addizionali default Milano/Lombardia (modificabili dall'utente)
-- Aliquota INPS 9,19% (standard FPLD)
-- No detrazioni familiari (coperti da Assegno Unico Universale per under 21)
-- Addizionale regionale flat (non a scaglioni)
----
- 
-## 🛣️ Roadmap v2
+ ## 🛣️ Roadmap v2
  
 - Gestione input stipendio mensile (se importo < soglia, chiedere conferma all'utente)
 - Detrazioni figli a carico: integrazione simulazione AUU e detrazioni figli over 21
