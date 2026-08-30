@@ -120,21 +120,30 @@ async def chat(message, history):
     
     yield history, fig, ""
 
-with gr.Blocks(theme=gr.themes.Soft()) as app:
-    gr.Markdown("# 💰 RAL Agent - Calcolatore Stipendio Netto")
-    gr.Markdown("Inserisci la tua RAL annuale e scopri il tuo stipendio netto. Puoi anche chiedere info su IRPEF, INPS e detrazioni.")
-    
+with gr.Blocks(
+    theme=gr.themes.Ocean(
+        primary_hue="green",
+        secondary_hue="emerald",
+        neutral_hue="gray",
+    ),
+) as app:
+    gr.HTML("""
+        <div style="background: linear-gradient(135deg, #16A34A 0%, #059669 50%, #0D9488 100%);
+                    padding: 2rem 2rem 1.5rem 2rem; border-radius: 14px; margin-bottom: 1rem;
+                    box-shadow: 0 4px 20px rgba(22, 163, 74, 0.25);">
+            <h1 style="color: white; font-size: 2.2rem; font-weight: 800; margin: 0 0 0.3rem 0;">💰 RALyzer</h1>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.05rem; margin: 0;">Da RAL lorda a netto in tasca. Chiedi tutto su IRPEF, INPS e detrazioni.💸</p>
+        </div>
+    """)
     with gr.Row():
         with gr.Column(scale=1):
-            chatbot = gr.Chatbot(height=650, label="RAL AI")
+            chatbot = gr.Chatbot(height=480, label="🤖 AI")
             msg = gr.Textbox(
-                placeholder="Es: 'Ho una RAL di 35mila euro' oppure 'Cos'è l'IRPEF?'",
-                label="Scrivi qui",
-                show_label=True
+                placeholder="Es: RAL 35k, cos'è l'IRPEF?...",
+                show_label=False,
             )
         with gr.Column(scale=2):
-            plot = gr.Plot(label="Waterfall")
+            plot = gr.Plot(label="📊 Waterfall")
 
     msg.submit(fn=chat, inputs=[msg, chatbot], outputs=[chatbot, plot, msg])
-
 app.launch(share=True)
